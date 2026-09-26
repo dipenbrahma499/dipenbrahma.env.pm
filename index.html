@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dipen Brahma — Coming Soon</title>
+  <meta name="description" content="Dipen Brahma is coming soon. Stay tuned for something amazing." />
+  <style>
+    :root {
+      --bg: #050816;
+      --card: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --muted: #a0a8c0;
+      --accent: #7c3aed;
+      --accent-2: #06b6d4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Arial, sans-serif;
+      overflow-x: hidden;
+      padding: 24px;
+      position: relative;
+    }
+
+    /* Animated background */
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 35%),
+        radial-gradient(circle at 80% 30%, rgba(6, 182, 212, 0.22), transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(236, 72, 153, 0.15), transparent 40%),
+        #050816;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+      z-index: -2;
+      animation: float 12s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 280px;
+      height: 280px;
+      background: #7c3aed;
+      top: 10%;
+      left: 8%;
+    }
+
+    .orb-2 {
+      width: 320px;
+      height: 320px;
+      background: #06b6d4;
+      bottom: 8%;
+      right: 6%;
+      animation-delay: -4s;
+    }
+
+    .orb-3 {
+      width: 220px;
+      height: 220px;
+      background: #ec4899;
+      top: 55%;
+      left: 55%;
+      animation-delay: -8s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      50% {
+        transform: translate(30px, -30px) scale(1.08);
+      }
+    }
+
+    /* Card */
+    .card {
+      width: min(100%, 720px);
+      padding: 52px 32px 36px;
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      animation: fadeUp 0.9s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 12px 30px rgba(124, 58, 237, 0.35);
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 7vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff, #c4b5fd, #67e8f9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      margin-bottom: 34px;
+    }
+
+    /* Countdown */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .countdown > div {
+      min-width: 82px;
+      padding: 16px 12px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .countdown span {
+      display: block;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .countdown small {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* Form */
+    form {
+      display: flex;
+      gap: 10px;
+      max-width: 520px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    input[type="email"] {
+      flex: 1 1 240px;
+      min-width: 0;
+      padding: 15px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      outline: none;
+      font-size: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="email"]::placeholder {
+      color: #7f89a3;
+    }
+
+    input[type="email"]:focus {
+      border-color: rgba(124, 58, 237, 0.8);
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.18);
+    }
+
+    button {
+      flex: 0 0 auto;
+      padding: 15px 24px;
+      border: none;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 24px rgba(124, 58, 237, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(124, 58, 237, 0.4);
+      filter: brightness(1.08);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .message {
+      min-height: 22px;
+      margin-top: 14px;
+      color: #67e8f9;
+      font-size: 0.92rem;
+    }
+
+    /* Socials */
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .socials a {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #dbe3f5;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.2s, background 0.2s, color 0.2s;
+    }
+
+    .socials a:hover {
+      transform: translateY(-3px);
+      background: rgba(124, 58, 237, 0.25);
+      color: #fff;
+    }
+
+    .socials svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    footer {
+      margin-top: 28px;
+      color: #7f89a3;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 42px 20px 30px;
+        border-radius: 22px;
+      }
+
+      .countdown > div {
+        min-width: 68px;
+        padding: 13px 10px;
+      }
+
+      form {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <main class="card">
+    <div class="logo">DB</div>
+
+    <h1>Dipen Brahma</h1>
+    <p class="tagline">Something amazing is on the way. Stay tuned.</p>
+
+    <div class="countdown" id="countdown" aria-label="Countdown">
+      <div>
+        <span id="days">00</span>
+        <small>Days</small>
+      </div>
+      <div>
+        <span id="hours">00</span>
+        <small>Hours</small>
+      </div>
+      <div>
+        <span id="minutes">00</span>
+        <small>Minutes</small>
+      </div>
+      <div>
+        <span id="seconds">00</span>
+        <small>Seconds</small>
+      </div>
+    </div>
+
+    <form id="subscribe-form">
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        autocomplete="email"
+        required
+      />
+      <button type="submit">Notify Me</button>
+    </form>
+
+    <p class="message" id="message" role="status"></p>
+
+    <div class="socials">
+      <a href="#" aria-label="GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2.17c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.1-.75.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.41-2.69 5.38-5.25 5.66.42.36.79 1.08.79 2.18v3.23c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/>
+        </svg>
+      </a>
+
+      <a href="#" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.2 8h4.6v14.8H.2V8Zm7.4 0h4.4v2h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 6.99v8.19h-4.6v-7.26c0-1.73-.03-3.96-2.41-3.96-2.42 0-2.79 1.89-2.79 3.84v7.38H7.6V8Z"/>
+        </svg>
+      </a>
+
+      <a href="#" aria-label="X / Twitter" title="X / Twitter">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18.9 2H22l-6.77 7.73L23 22h-6.27l-4.91-6.42L6.2 22H3l7.24-8.27L2.5 2h6.43l4.44 5.87L18.9 2Zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20Z"/>
+        </svg>
+      </a>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Dipen Brahma. All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    // Change this to your launch date
+    const targetDate = new Date("2026-12-31T23:59:59").getTime();
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+    const countdownEl = document.getElementById("countdown");
+
+    function pad(value) {
+      return String(value).padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdownEl.innerHTML = "<p>We are live! 🎉</p>";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      daysEl.textContent = pad(days);
+      hoursEl.textContent = pad(hours);
+      minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Email form
+    const form = document.getElementById("subscribe-form");
+    const emailInput = document.getElementById("email");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const email = emailInput.value.trim();
+
+      if (!email || !emailInput.checkValidity()) {
+        message.textContent = "Please enter a valid email address.";
+        message.style.color = "#fca5a5";
+        return;
+      }
+
+      message.textContent = `Thanks! We'll notify you at ${email}.`;
+      message.style.color = "#67e8f9";
+      form.reset();
+    });
+
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
